@@ -104,14 +104,14 @@ function MenuBarDirective($mdUtil, $mdTheming) {
 
     compile: function compile(templateEl, templateAttrs) {
       if (!templateAttrs.ariaRole) {
-        templateEl[0].setAttribute('role', 'menubar');
+        templateEl[0].setAttribute('role', 'list');
       }
       angular.forEach(templateEl[0].children, function(menuEl) {
         if (menuEl.nodeName == 'MD-MENU') {
           if (!menuEl.hasAttribute('md-position-mode')) {
             menuEl.setAttribute('md-position-mode', 'left bottom');
           }
-          menuEl.setAttribute('role', 'menu');
+          menuEl.setAttribute('role', 'listitem');
           var contentEls = $mdUtil.nodesToArray(menuEl.querySelectorAll('md-menu-content'));
           angular.forEach(contentEls, function(contentEl) {
             contentEl.classList.add('md-menu-bar-menu');

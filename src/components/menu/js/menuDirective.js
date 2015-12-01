@@ -186,7 +186,6 @@ function MenuDirective($mdUtil) {
         }
         menuEl.classList.add('md-nested-menu');
         menuEl.setAttribute('md-nest-level', nestingDepth + 1);
-        menuEl.setAttribute('role', 'menu');
       });
     }
     return link;
@@ -197,7 +196,7 @@ function MenuDirective($mdUtil) {
     var isInMenuBar = ctrls[1] != undefined;
     // Move everything into a md-menu-container and pass it to the controller
     var menuContainer = angular.element(
-      '<div class="md-open-menu-container md-whiteframe-z2"></div>'
+      '<div class="md-open-menu-container md-whiteframe-z2" role="list"></div>'
     );
     var openButton = element.children()[0];
     var menuContents = element.children()[1];

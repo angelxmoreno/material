@@ -22,12 +22,11 @@ function MenuItemDirective() {
         templateEl.append(buttonEl);
         templateEl[0].classList.add('md-indent');
 
-        setDefault('role', (templateAttrs.type == 'checkbox') ? 'menuitemcheckbox' : 'menuitemradio');
+        //setDefault('role', (templateAttrs.type == 'checkbox') ? 'menuitemcheckbox' : 'menuitemradio');
         angular.forEach(['ng-disabled'], moveAttrToButton);
 
-      } else {
-        setDefault('role', 'menuitem');
       }
+      setDefault('role', 'listitem');
 
 
       return function(scope, el, attrs, ctrls) {
