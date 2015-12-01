@@ -196,10 +196,12 @@ function MenuDirective($mdUtil) {
     var isInMenuBar = ctrls[1] != undefined;
     // Move everything into a md-menu-container and pass it to the controller
     var menuContainer = angular.element(
-      '<div class="md-open-menu-container md-whiteframe-z2" role="list"></div>'
+      '<div class="md-open-menu-container md-whiteframe-z2"></div>'
     );
-    var openButton = element.children()[0];
     var menuContents = element.children()[1];
+    if (!menuContents.hasAttribute('role')) {
+      menuContents.setAttribute('role', 'list');
+    }
     menuContainer.append(menuContents);
 
     element.append(menuContainer);
