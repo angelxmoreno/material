@@ -200,7 +200,7 @@ function MenuDirective($mdUtil) {
     );
     var menuContents = element.children()[1];
     if (!menuContents.hasAttribute('role')) {
-      menuContents.setAttribute('role', 'list');
+      menuContents.setAttribute('role', 'menu');
     }
     menuContainer.append(menuContents);
 
