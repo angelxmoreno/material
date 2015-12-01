@@ -199,21 +199,12 @@ function MenuDirective($mdUtil) {
     var menuContainer = angular.element(
       '<div class="md-open-menu-container md-whiteframe-z2"></div>'
     );
+    var openButton = element.children()[0];
     var menuContents = element.children()[1];
     menuContainer.append(menuContents);
-    if (isInMenuBar) {
-      element.append(menuContainer);
-      menuContainer[0].style.display = 'none';
-    }
+
+    element.append(menuContainer);
+    menuContainer[0].style.display = 'none';
     mdMenuCtrl.init(menuContainer, { isInMenuBar: isInMenuBar });
-
-    scope.$on('$destroy', function() {
-      mdMenuCtrl
-        .destroy()
-        .finally(function(){
-          menuContainer.remove();
-        });
-    });
-
   }
 }
